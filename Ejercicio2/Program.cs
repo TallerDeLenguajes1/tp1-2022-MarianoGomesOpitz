@@ -19,6 +19,10 @@ namespace Ejercicio2 // Note: actual namespace depends on the project name.
             {
                 Console.WriteLine($"\n{x}\nError detectado, el valor asignado no es un número");
             }
+            catch (OverflowException x)
+            {
+                Console.WriteLine($"\n{x}\nError detectado, el número asignado es muy grande");
+            }
 
             //Problema 2: División de dos números
             Console.WriteLine("\n\n/----------------DIVISIÓN----------------/");
@@ -30,13 +34,17 @@ namespace Ejercicio2 // Note: actual namespace depends on the project name.
                 int divisor = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine($"\nLa división de {dividendo} en {divisor} es: {dividendo / divisor}");
             }
-            catch (FormatException y)
+            catch (FormatException x)
             {
-                Console.WriteLine($"\n{y}\nError detectado, el valor asignado no es un número");
+                Console.WriteLine($"\n{x}\nError detectado, el valor asignado no es un número");
             }
-            catch (DivideByZeroException z)
+            catch (OverflowException x)
             {
-                Console.WriteLine($"\n{z}\nNo es posible dividir en cero");
+                Console.WriteLine($"\n{x}\nError detectado, uno de los números asignados es muy grande");
+            }
+            catch (DivideByZeroException x)
+            {
+                Console.WriteLine($"\n{x}\nNo es posible dividir en cero");
             }
 
             //Problema 3: Kilómetros y litros
@@ -49,9 +57,13 @@ namespace Ejercicio2 // Note: actual namespace depends on the project name.
                 double litro = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine($"\nLos {kilo} kilómetros recorridos por los {litro} litros gastados es: {kilo * litro}");
             }
-            catch (FormatException p)
+            catch (FormatException x)
             {
-                Console.WriteLine($"\n{p}\nError detectado, uno de los valores asignados no es un número");
+                Console.WriteLine($"\n{x}\nError detectado, uno de los valores asignados no es un número");
+            }
+            catch (OverflowException x)
+            {
+                Console.WriteLine($"\n{x}\nError detectado, uno de los números asignados es muy grande");
             }
 
             //Problema 4:
