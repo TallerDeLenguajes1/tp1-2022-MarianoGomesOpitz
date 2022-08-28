@@ -33,10 +33,30 @@ namespace Ejercicio3 // Note: actual namespace depends on the project name.
                     string fecha = Convert.ToString(new DateOnly(anio, mes, dia));
                     Console.WriteLine("Sexo (hombre: H, mujer, M): ");
                     char sexo = Console.ReadLine()[0];
-                    Console.WriteLine("Estado civil (soltero: S, en pareja: P, casado: C, viudo: V): ");
+                    Console.WriteLine("Estado civil (Soltero: S, en Pareja: P, Casado: C, Divorciado: D, Viudo: V): ");
                     char civil = Console.ReadLine()[0];
 
                     var personal = new DatosPersonales(apellido, nombre, fecha, sexo, civil);
+
+                    switch (personal.EstadoCivil)
+                    {
+                        case 'C':
+                            Console.WriteLine("Ingrese la cantidad de hijos que tiene: ");
+                            personal.Hijos = Convert.ToInt32(Console.ReadLine());
+                            break;
+
+                        case 'D':
+                            Console.WriteLine("Ingrese la fecha de su divorcio: ");
+                            Console.WriteLine("Día: ");
+                            dia = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Mes: ");
+                            mes = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Año: ");
+                            anio = Convert.ToInt32(Console.ReadLine());
+                            personal.FechaDiv = Convert.ToString(new DateOnly(anio, mes, dia));
+                            break;
+                    }
+
 
                     Console.WriteLine("Dirección:");
                     Console.WriteLine("Calle: ");
@@ -59,8 +79,19 @@ namespace Ejercicio3 // Note: actual namespace depends on the project name.
                     string carg = Console.ReadLine();
                     Console.WriteLine("Suledo básico: ");
                     float sueldo = Convert.ToSingle(Console.ReadLine());
+                    Console.WriteLine("¿Posee título universitario? (Sí: 1, No: 0)");
+                    int tit = Convert.ToInt32(Console.ReadLine());
 
                     var profesional = new DatosProfesionales(carg, sueldo);
+
+                    if (tit == 1)
+                    {
+                        Console.WriteLine("Ingrese el título que posee: ");
+                        profesional.Titulo = Console.ReadLine();
+                        Console.WriteLine("Ingrese la universidad a la que asistió");
+                        profesional.Universidad = Console.ReadLine();
+                    }
+
 
                     var emple = new Empleado(personal, direc, fecha, profesional);
 
