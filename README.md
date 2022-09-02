@@ -43,4 +43,4 @@
             }
         }
 	```
-	El código indica que la excepción se causó en la linea "FuncionLLamadoraB();", ocasionada por la linea "Dividir(3, 0);", y que ésta falló debido que se ejecutó la linea "int c = a / b;".
+	El código indica que la excepción se causó en la linea ```FuncionLLamadoraB();```, ocasionada por la linea ```Dividir(3, 0);```, y que ésta falló debido que se ejecutó la linea ```int c = a / b;```.
