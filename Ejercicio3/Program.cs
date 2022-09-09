@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
+using NLog;
 
 namespace Ejercicio3 // Note: actual namespace depends on the project name.
 {
@@ -7,6 +8,8 @@ namespace Ejercicio3 // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
+            Logger log = LogManager.GetCurrentClassLogger();
+
             try
             {
                 Console.WriteLine("\nIngrese la cantidad de empleados: ");
@@ -110,29 +113,29 @@ namespace Ejercicio3 // Note: actual namespace depends on the project name.
                     j++;
                 }
             }
-            catch (IOException)
+            catch (IOException ex)
             {
-                Console.WriteLine("\nError detectado, ha ocurrido un error de Entrada/Salida");
+                log.Fatal(ex, "\nError detectado, ha ocurrido un error de Entrada/Salida");
             }
-            catch (OutOfMemoryException)
+            catch (OutOfMemoryException ex)
             {
-                Console.WriteLine("\nError detectado, no hay suficiente espacio de memoria para continuar la ejecución del programa");
+                log.Fatal(ex, "\nError detectado, no hay suficiente espacio de memoria para continuar la ejecución del programa");
             }
-            catch (ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException ex)
             {
-                Console.WriteLine("\nError detectado, el valor de un argumento sobrepasa el rango límite definido");
+                log.Fatal(ex, "\nError detectado, el valor de un argumento sobrepasa el rango límite definido");
             }
-            catch (FormatException)
+            catch (FormatException ex)
             {
-                Console.WriteLine("\nError detectado, el formato de un argumento es inválido");
+                log.Fatal(ex, "\nError detectado, el formato de un argumento es inválido");
             }
-            catch (OverflowException)
+            catch (OverflowException ex)
             {
-                Console.WriteLine("\nError detectado, una operación aritmética, de casteo o conversión ha sufrido una sobrecarga");
+                log.Fatal(ex, "\nError detectado, una operación aritmética, de casteo o conversión ha sufrido una sobrecarga");
             }
-            catch (ArgumentNullException)
+            catch (ArgumentNullException ex)
             {
-                Console.WriteLine("\nError detectado, se ha pasado un valor nulo a un método que no acepta valores nulos");
+                log.Fatal(ex, "\nError detectado, se ha pasado un valor nulo a un método que no acepta valores nulos");
             }
         }
     }
